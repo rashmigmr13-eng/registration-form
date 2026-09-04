@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admission Registration Form</title>
+<style>
+    :root {
+        --ink: #1c2a24;
+        --paper: #f6f4ee;
+        --line: #cfc9ba;
+        --accent: #2f5d50;
+        --accent-light: #e4ede9;
+        --error: #a13d2c;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+        line-height: 1.5;
+        padding: 48px 16px 80px;
+    }
+
+    .sheet {
+        max-width: 640px;
+        margin: 0 auto;
+        background: #fffdf9;
+        border: 1px solid var(--line);
+        padding: 48px 40px;
+    }
+
+    header {
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 20px;
+        margin-bottom: 32px;
+    }
+
+    header h1 {
+        margin: 0 0 6px;
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+    }
+
+    header p {
+        margin: 0;
+        color: #5b6b62;
+        font-size: 15px;
+    }
+
+    fieldset {
+        border: none;
+        padding: 0;
+        margin: 0 0 32px;
+    }
+
+    legend {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent);
+        padding: 0 0 12px;
+        border-bottom: 1px solid var(--line);
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .field {
+        margin-bottom: 18px;
+    }
+
+    label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 6px;
+        color: #3d4a43;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px 12px;
+        font-family: inherit;
+        font-size: 15px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        color: var(--ink);
+        border-radius: 3px;
+    }
+
+    input:focus, select:focus {
+        outline: 2px solid var(--accent);
+        outline-offset: 1px;
+        background: #fff;
+    }
+
+    .signature-hint {
+        font-size: 12px;
+        color: #6b7a72;
+        margin-top: 4px;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+        font-family: inherit;
+        cursor: pointer;
+    }
+
+    button:hover { background: #274a40; }
+    button:disabled { background: #9fb0a8; cursor: not-allowed; }
+
+    @media (max-width: 520px) {
+        .row { grid-template-columns: 1fr; }
+        .sheet { padding: 32px 22px; }
+    }
+</style>
+</head>
+<body>
+<div class="sheet">
+    <header>
+        <h1>Admission Registration</h1>
+        <p>Complete every field below to submit an application.</p>
+    </header>
+
+    <form id="registrationForm">
+        <fieldset>
+            <legend>Student details</legend>
+            <div class="row">
+                <div class="field">
+                    <label for="first_name">First name</label>
+                    <input type="text" id="first_name" required>
+                </div>
+                <div class="field">
+                    <label for="last_name">Last name</label>
+                    <input type="text" id="last_name" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="class_apply">Class applying for</label>
+                    <input type="text" id="class_apply" required>
+                </div>
+                <div class="field">
+                    <label for="dob">Date of birth</label>
+                    <input type="date" id="dob" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Parent / guardian details</legend>
+            <div class="row">
+                <div class="field">
+                    <label for="parent_first_name">Parent first name</label>
+                    <input type="text" id="parent_first_name" required>
+                </div>
+                <div class="field">
+                    <label for="parent_last_name">Parent last name</label>
+                    <input type="text" id="parent_last_name" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Address</legend>
+            <div class="field">
+                <label for="address">Address line 1</label>
+                <input type="text" id="address" required>
+            </div>
+            <div class="field">
+                <label for="address2">Address line 2 (optional)</label>
+                <input type="text" id="address2">
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="city">City</label>
+                    <input type="text" id="city" required>
+                </div>
+                <div class="field">
+                    <label for="region">State / region</label>
+                    <input type="text" id="region" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="postal_code">Postal code</label>
+                    <input type="text" id="postal_code" required>
+                </div>
+                <div class="field">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact & confirmation</legend>
+            <div class="row">
+                <div class="field">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+            </div>
+            <div class="field">
+                <label for="signature">Signature (type full name)</label>
+                <input type="text" id="signature" required>
+                <div class="signature-hint">Typing your name here confirms the details above are accurate.</div>
+            </div>
+        </fieldset>
+
+        <button type="submit">Submit application</button>
+    </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
